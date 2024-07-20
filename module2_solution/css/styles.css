@@ -17,10 +17,9 @@ header {
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    width: 100%;
     padding: 20px;
+    overflow: hidden; /* Clear floats */
 }
 
 .menu-item {
@@ -28,12 +27,40 @@ header {
     border: 1px solid #ddd;
     margin: 10px;
     padding: 20px;
-    width: 30%;
+    float: left;
     text-align: center;
 }
 
 h1, h2 {
     margin-bottom: 10px;
+}
+
+p {
+    margin-top: 10px;
+}
+
+/* Desktop view (992px and above) */
+@media (min-width: 992px) {
+    .menu-item {
+        width: 32%; /* Approximately one-third with some margin */
+    }
+}
+
+/* Tablet view (between 768px and 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .menu-item {
+        width: 47.5%; /* Two items in the first row, one in the second row */
+    }
+    .menu-item:nth-child(3) {
+        width: 100%; /* Full width for the third item */
+    }
+}
+
+/* Mobile view (equal to or less than 767px) */
+@media (max-width: 767px) {
+    .menu-item {
+        width: 100%; /* Each item takes up the entire row */
+    }
 }
 
 p {
